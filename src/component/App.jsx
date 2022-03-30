@@ -9,7 +9,13 @@ export default function App() {
     const [input, setInput] = useState(0);
 
     const currentSum = useSelector((state) => {
-        return state.sum
+        // console.log("test")
+        // console.log(state)
+        return state.sum.sum
+    }, shallowEqual);
+
+    const numbers = useSelector((state) => {
+        return state.sum.list
     }, shallowEqual);
 
     const dispatch = useDispatch();
@@ -25,12 +31,21 @@ export default function App() {
         });
     }
 
+    function handleOnClickSubtract() {
+        dispatch({
+            type: 'SUBTRACT',
+            value: input,
+        });
+    }
+
     return (<div>
         <h1>{"Let's Have Fun With Redux"}</h1>
         <h2>{"Use the form below to add to the total"}</h2>
         <h3>{currentSum}</h3>
         <input onInput={(event) => handleOnInput(event)}/>
         <button onClick={() => handleOnClick()}>Add</button>
+        <button onClick={() => handleOnClickSubtract()}>Subtract</button>
+        <h3>{"History List: " + numbers}</h3>
     </div>)
 }
 

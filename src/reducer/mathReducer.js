@@ -1,8 +1,22 @@
 import { combineReducers } from "redux";
 
-function mathReducer(state = 0, action) {
-    if (action.type === 'ADD') {
-        return parseInt(state) + parseInt(action.value);
+const initialState = {
+    sum: 0,
+    list: "0",
+}
+
+function mathReducer(state = initialState, action) {
+   if (action.type === 'ADD') {
+       return {
+        sum: parseInt(state.sum) + parseInt(action.value),
+        list: state.list + " +" + action.value,
+       }
+       
+    } else if (action.type === 'SUBTRACT') {
+        return {
+            sum: parseInt(state.sum) - parseInt(action.value),
+            list: state.list + " -" + action.value,
+           }
     }
 
     return state;
@@ -18,7 +32,7 @@ function newOwnerReducer(state = 'hunter', action) {
 
 export default combineReducers({
     sum: mathReducer,
-    owner: newOwnerReducer,
+    // owner: newOwnerReducer,
 
 })
 

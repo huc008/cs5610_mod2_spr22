@@ -11,19 +11,13 @@ import { counterReducer } from './reducer/counterReducer';
 import mathReducer from './reducer/mathReducer';
 import combineReducers from './reducer/mathReducer';
 
-const store = createStore(counterReducer);
+// const store = createStore(counterReducer);
+const store = createStore(mathReducer);
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Navbar />
-        <Routes>
-            <Route path="/game/:difficulty?" element={
-                <Provider store={store}>
-                    <NewApp />
-                </Provider>
-            } />
-            <Route path="/about" element={<About/>}/>
-        </Routes>
-    </BrowserRouter>
-    , 
+
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    
 document.getElementById('root'));
