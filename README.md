@@ -1,5 +1,5 @@
 # Demo
-<img src="https://i.imgur.com/lDHTkXu.gif" width=250>
+<img src="https://i.imgur.com/1Um6XUZ.gif" width=350>
 
 
 # Getting Started with Create React App
